@@ -38,10 +38,9 @@ function App() {
             Object.keys(result).length !==0 && (
               <ResultWrap>
                 <div className='city'>{result.data.name}</div>
-                <div className='temp'>{result.data.main.temp}</div>
+                <div className='temp'>{Math.round(((result.data.main.temp -273.15)*10))/10}℃</div>
                 <div className='sky'>{result.data.weather[0].main}</div>
               </ResultWrap>
-            
             )}
       </div>
     </AppWrap>
@@ -63,6 +62,11 @@ const AppWrap = styled.div`
     border: 1px blue solid;
     padding: 20px;
   }
+  input{
+    padding: 16px;
+    border: 2px black solid;
+    border-radius: 16px;
+  }
 `;
 
 const ResultWrap = styled.div`
@@ -73,7 +77,7 @@ const ResultWrap = styled.div`
   .city{
     font-size: 24px;
   }
-  .temparature{
+  .temp{
     font-size: 60px;
     margin-top: 8px;
   }
